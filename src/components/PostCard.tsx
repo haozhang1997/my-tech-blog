@@ -2,23 +2,32 @@ import Link from "next/link";
 import { format } from "date-fns";
 import type { PostMeta } from "@/lib/posts";
 
-export default function PostCard({ post }: { post: PostMeta }) {
+export default function PostCard({
+  post,
+  index = 0,
+}: {
+  post: PostMeta;
+  index?: number;
+}) {
   return (
-    <Link href={`/blog/${post.slug}`} className="group block no-underline">
-      <article className="rounded-2xl border border-border/50 bg-card p-6 transition-all duration-300 hover:border-border hover:shadow-lg">
-        <div className="mb-3 flex items-center gap-3 text-sm text-muted">
+    <Link
+      href={`/blog/${post.slug}`}
+      className={`group block no-underline animate-in animate-delay-${index + 1}`}
+    >
+      <article className="card-hover rounded-2xl bg-card p-7 sm:p-8 shadow-[var(--shadow-sm)]">
+        <div className="mb-4 flex items-center gap-3 text-[13px] text-muted">
           <time dateTime={post.date}>
-            {format(new Date(post.date), "yyyy-MM-dd")}
+            {format(new Date(post.date), "MMM dd, yyyy")}
           </time>
-          <span>&middot;</span>
+          <span className="w-1 h-1 rounded-full bg-muted/50" />
           <span>{post.readingTime}</span>
         </div>
 
-        <h2 className="mb-2 text-xl font-semibold tracking-tight text-foreground group-hover:text-accent">
+        <h2 className="mb-3 text-[1.375rem] font-semibold tracking-tight leading-snug text-foreground group-hover:text-accent transition-colors duration-200">
           {post.title}
         </h2>
 
-        <p className="mb-4 text-sm leading-relaxed text-muted line-clamp-2">
+        <p className="mb-5 text-[0.9375rem] leading-relaxed text-muted line-clamp-2">
           {post.excerpt}
         </p>
 
@@ -27,7 +36,7 @@ export default function PostCard({ post }: { post: PostMeta }) {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
+                className="rounded-full bg-accent/[0.06] px-2.5 py-0.5 text-[11px] font-medium text-accent/80"
               >
                 {tag}
               </span>
