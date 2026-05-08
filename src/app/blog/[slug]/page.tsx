@@ -41,33 +41,32 @@ export default async function PostPage({
   }
 
   return (
-    <article className="mx-auto max-w-[680px] px-6 pb-24 pt-20">
+    <article className="mx-auto max-w-[660px] px-6 pb-24 pt-20">
       {/* Back */}
       <Link
         href="/blog"
-        className="animate-in mb-10 inline-flex items-center gap-1.5 text-sm text-muted no-underline hover:text-foreground transition-colors duration-200"
+        className="animate-in mb-10 inline-flex items-center gap-1.5 text-[13px] text-muted no-underline hover:text-foreground transition-colors duration-200"
       >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
           <path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-        返回
+        返回文章列表
       </Link>
 
       {/* Header */}
-      <header className="animate-in animate-delay-1 mb-12">
+      <header className="animate-in animate-delay-1 mb-10">
         <div className="mb-5 flex items-center gap-3 text-[13px] text-muted">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="opacity-60">
-            <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2"/>
-            <path d="M7 4v3.5l2 1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-          </svg>
           <time dateTime={post.date}>
             {format(new Date(post.date), "yyyy 年 MM 月 dd 日")}
           </time>
-          <span className="w-1 h-1 rounded-full bg-muted/50" />
+          <span className="w-[3px] h-[3px] rounded-full bg-muted/40" />
           <span>{post.readingTime}</span>
         </div>
 
-        <h1 className="text-[2.25rem] sm:text-[2.75rem] font-bold tracking-[-0.035em] leading-[1.1]">
+        <h1
+          className="text-[2rem] sm:text-[2.5rem] font-bold tracking-[-0.025em] leading-[1.15]"
+          style={{ fontFamily: "var(--font-serif)" }}
+        >
           {post.title}
         </h1>
 
@@ -76,7 +75,7 @@ export default async function PostPage({
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-accent/[0.06] px-3 py-1 text-[11px] font-medium text-accent/80"
+                className="rounded-lg bg-accent/[0.07] px-3 py-1 text-[11px] font-medium text-accent/90"
               >
                 {tag}
               </span>

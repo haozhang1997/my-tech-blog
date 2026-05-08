@@ -8,31 +8,32 @@ export default function Header() {
 
   return (
     <header className="glass fixed top-0 left-0 right-0 z-50 border-b border-border">
-      <nav className="mx-auto flex h-11 max-w-[980px] items-center justify-between px-6">
+      <nav className="mx-auto flex h-[52px] max-w-[960px] items-center justify-between px-6">
         <Link
           href="/"
-          className="text-[1.05rem] font-medium tracking-tight text-foreground no-underline"
+          className="text-[1.1rem] tracking-tight text-foreground no-underline"
+          style={{ fontFamily: "var(--font-serif)" }}
         >
           TechBlog
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-9 sm:flex">
+        <div className="hidden items-center gap-8 sm:flex">
           <Link
             href="/"
-            className="text-xs text-muted hover:text-foreground no-underline transition-colors duration-200"
+            className="text-[0.8125rem] text-muted hover:text-foreground no-underline transition-colors duration-200"
           >
             首页
           </Link>
           <Link
             href="/blog"
-            className="text-xs text-muted hover:text-foreground no-underline transition-colors duration-200"
+            className="text-[0.8125rem] text-muted hover:text-foreground no-underline transition-colors duration-200"
           >
             博客
           </Link>
           <Link
             href="/about"
-            className="text-xs text-muted hover:text-foreground no-underline transition-colors duration-200"
+            className="text-[0.8125rem] text-muted hover:text-foreground no-underline transition-colors duration-200"
           >
             关于
           </Link>
@@ -44,10 +45,10 @@ export default function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <div className="relative w-4 h-3 flex flex-col justify-between">
+          <div className="relative w-[18px] h-[14px] flex flex-col justify-between">
             <span
               className={`block h-[1.5px] w-full bg-foreground rounded-full transition-all duration-300 origin-center ${
-                menuOpen ? "rotate-45 translate-y-[5.25px]" : ""
+                menuOpen ? "rotate-45 translate-y-[6.25px]" : ""
               }`}
             />
             <span
@@ -57,14 +58,14 @@ export default function Header() {
             />
             <span
               className={`block h-[1.5px] w-full bg-foreground rounded-full transition-all duration-300 origin-center ${
-                menuOpen ? "-rotate-45 -translate-y-[5.25px]" : ""
+                menuOpen ? "-rotate-45 -translate-y-[6.25px]" : ""
               }`}
             />
           </div>
         </button>
       </nav>
 
-      {/* Mobile menu with animation */}
+      {/* Mobile menu */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-out sm:hidden ${
           menuOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
@@ -73,21 +74,21 @@ export default function Header() {
         <div className="border-t border-border px-6 py-4 flex flex-col gap-1">
           <Link
             href="/"
-            className="py-2 text-sm text-muted hover:text-foreground no-underline transition-colors duration-200"
+            className="py-2.5 text-sm text-muted hover:text-foreground no-underline transition-colors duration-200"
             onClick={() => setMenuOpen(false)}
           >
             首页
           </Link>
           <Link
             href="/blog"
-            className="py-2 text-sm text-muted hover:text-foreground no-underline transition-colors duration-200"
+            className="py-2.5 text-sm text-muted hover:text-foreground no-underline transition-colors duration-200"
             onClick={() => setMenuOpen(false)}
           >
             博客
           </Link>
           <Link
             href="/about"
-            className="py-2 text-sm text-muted hover:text-foreground no-underline transition-colors duration-200"
+            className="py-2.5 text-sm text-muted hover:text-foreground no-underline transition-colors duration-200"
             onClick={() => setMenuOpen(false)}
           >
             关于

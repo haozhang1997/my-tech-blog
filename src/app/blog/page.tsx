@@ -11,13 +11,16 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <section className="mx-auto max-w-[720px] px-6 pb-24 pt-20">
-      <div className="animate-in mb-2">
-        <h1 className="text-4xl font-bold tracking-[-0.035em] sm:text-5xl">
+    <section className="mx-auto max-w-[700px] px-6 pb-24 pt-20">
+      <div className="animate-in mb-3">
+        <h1
+          className="text-[2.25rem] font-bold tracking-[-0.025em] sm:text-[2.75rem]"
+          style={{ fontFamily: "var(--font-serif)" }}
+        >
           Blog
         </h1>
       </div>
-      <p className="animate-in animate-delay-1 mb-12 text-lg font-light text-muted">
+      <p className="animate-in animate-delay-1 mb-12 text-base text-muted">
         共 {posts.length} 篇文章，持续更新中。
       </p>
 
